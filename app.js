@@ -11,8 +11,8 @@ app.get('/', (req, res) => {
     res.render('index', {titulo: 'Titulo dinamico'})
 })
 
-/* middleware*/
-app.use(express.static('public'));
+/* middleware
+app.use(express.static('public'));*/
 
 
 
