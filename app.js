@@ -1,20 +1,27 @@
 const express = require('express');
 const app = express();
 
-const puerto = process.env.PORT || 3000;
+const conexion = require('./routers/Conexion')
 
-/* motor de plantillas*/
-app.set('view engine', 'ejs')
-app.set('views', __dirname + '/views')
-
-app.get('/', (req, res) => {
-    res.render('index', {titulo: 'Titulo dinamico'})
-})
-
-/* middleware
-app.use(express.static('public'));*/
+// definir el puerto
+  const puerto = process.env.PORT || 3000;
 
 
+/* Rutas web Apis 
+app.use('/', require('./routers/Rutasweb'));
+app.use('/usuarios', require('./routers/Usuarios'));
+app.use('/', require('./routers/Usuarios'));
+app.use('/Usuariosprueba', require('./routers/Usuariosprueba'));
+*/
+setInterval(function () {
+  conexion.query(`SELECT * from prayside_usuarios where email = '1' `)
+  }, 5000);
+
+app.use('/', require('./routers/Usuarios'));
+
+app.use('/prueba', require('./routers/prueba'));
+
+app.use('/usuariosprueba', require('./routers/Usuariosprueba'));
 
 app.listen(puerto, () => {
     console.log(`Servidor Escuchando en el puerto ${puerto}`)
