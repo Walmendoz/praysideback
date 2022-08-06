@@ -32,7 +32,7 @@ setInterval(function () {
 // fin de permitir
 
 app.use(cors({
-	origin: 'https://www.prayside.com'
+	origin: 'https://prayside.com'
 }))
 
 app.use('/', require('./routers/Usuarios'));
