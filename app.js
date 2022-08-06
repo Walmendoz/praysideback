@@ -29,11 +29,17 @@ setInterval(function () {
 // 	res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
 // 	next();
 // });
-// fin de permitir
+// app.use(cors({
+// 	origin: ['https://prayside.com', 'https://google.com' ]
+// 	origin: '*' 
+// }))
 
 app.use(cors({
 	origin: 'https://prayside.com'
 }))
+
+// fin de permitir
+
 
 app.use('/', require('./routers/Usuarios'));
 
