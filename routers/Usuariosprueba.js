@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
         
 })
 
-router.get('/consulta', (req, res) => {
+router.get('/consulta/:nombre/:pais', (req, res) => {
     conexion.query('SELECT * from prayside_usuarios where nombre = ? and pais = ?' , [req.params.nombre, req.params.pais],  (err, rows, fields) => {
     if (err) {
         console.log(err)
@@ -26,7 +26,7 @@ router.get('/consulta', (req, res) => {
         
 })
 
-router.get('/consulta/nombre', (req, res) => {
+router.get('/consulta/:nombre', (req, res) => {
     conexion.query('SELECT * from prayside_usuarios where nombre = ?' , [req.params.nombre], (err, rows, fields) => {
     if (err) {
         console.log(err)
