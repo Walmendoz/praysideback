@@ -37,8 +37,20 @@ router.get('/consulta/:nombre', (req, res) => {
         
 })
 
+router.post('/signup', function (req, res) {
+    var data = req.body;
+    
+    console.log("Name: ", data.nombre);
+    console.log("Age: ", data.edad);
+    console.log("Gender: ", data.genero);
+      
+    res.send();
+  });
 
 /*conexion.end()*/
 
 module.exports = router;
+
+
+
 
