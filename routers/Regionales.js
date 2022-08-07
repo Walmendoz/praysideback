@@ -5,7 +5,7 @@ const conexion = require('./Conexion')
 
 router.get('/buscarpaises', (req, res) => {
     conexion.query('SELECT paiscodigodos, paisnombre FROM prayside_paises order by paisnombre' , (err, rows, fields) => {
-        if (err) {
+    if (err) {
         console.log(err)
     }else{
         res.json(rows)
