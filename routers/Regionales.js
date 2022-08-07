@@ -29,6 +29,7 @@ router.get('/buscarprovincias/:pais', (req, res) => {
     })
         
 })
+
 router.get('/buscarciudades/:pais', (req, res) => {
     var pais = req.params.pais
     var sqltext =  'SELECT paiscodigodos, ciudadcodigo, ciudadnombre, provinciacodigo ' + 
