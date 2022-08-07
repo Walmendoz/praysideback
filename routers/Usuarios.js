@@ -26,6 +26,19 @@ router.get('/buscarusuariocorreo/:email', (req, res) => {
         
 })
 
+router.get('/buscardatosusuario/:email', (req, res) => {
+    var email = req.params.email
+    conexion.query('SELECT * from prayside_usuarios where email = ?' , [email], (err, rows, fields) => {
+    if (err) {
+        console.log(err)
+    }else{
+        res.json(rows)
+    }
+    })
+        
+})
+
+
 router.post('/crearcuenta', (req, res) => {
     //    var data = req;
     var email = req.body[0].email;
@@ -88,6 +101,19 @@ router.put('/cambiarcuenta', (req, res) => {
     })
 
 });
+
+router.delete('/eliminarcuenta/:email', (req, res) => {
+    var email = req.params.email
+    conexion.query('DELETE prayside_usuarios where email = ?' , [email], (err, rows, fields) => {
+    if (err) {
+        console.log(err)
+    }else{
+        res.json(rows)
+    }
+    })
+        
+})
+
 
 /*conexion.end()*/
 
