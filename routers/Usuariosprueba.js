@@ -37,7 +37,7 @@ router.get('/consulta/:nombre', (req, res) => {
         
 })
 
-router.post('/signup', function (req, res) {
+router.post('/login', (req, res) => {
     var data = req.body;
     
     console.log("Name: ", data.nombre);
