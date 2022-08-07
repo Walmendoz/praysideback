@@ -39,7 +39,7 @@ router.get('/consulta/:nombre', (req, res) => {
 
 router.post('/login', (req, res) => {
 //    var data = req;
-//    console.log(data);
+    console.log(req.body);
     
 //    console.log("Name: ", data.nombre);
 //    console.log("Age: ", data.edad);
