@@ -45,7 +45,7 @@ router.post('/login', (req, res) => {
 //    console.log("Age: ", data.edad);
 //    console.log("Gender: ", data.genero);
       
-    res.send();
+    res.send(data);
   });
 
 /*conexion.end()*/
