@@ -43,20 +43,20 @@ router.post('/crearcuenta', (req, res) => {
     var idioma = req.body.idioma;
         
     var sqltext = 'insert into prayside_usuarios ' + 
-    'email = ?, clave = ?, nombre =?, apellido= ?, fechanacimiento=?, genero = ?, ' +  
-    'nombregenero = ?, pais = ?, provincia = ?, ciudad = ?, pregunta =? , respuesta = ?, idioma = ? '
-    
-    conexion.query(sqltext, [email, clave, nombre, apellido, fechanacimiento, genero, 
-                         nombregenero, pais, provincia, ciudad, pregunta, respuesta, idioma] 
-                        , (err, rows, fields) => {
+    '(email, clave, nombre, apellido, fechanacimiento, genero, ' +  
+    'nombregenero, pais, provincia, ciudad, pregunta, respuesta, idioma) VALUES ? ';
+
+    var values = [email, clave, nombre, apellido, fechanacimiento, genero, 
+        nombregenero, pais, provincia, ciudad, pregunta, respuesta, idioma];
+
+    conexion.query(sqltext, [values], (err, rows, fields) => {
         if (err) {
-            console.log(err)
+            res.json(err)
         }else{
             res.json('Registro insertado')
         }
     })
 
-    res.json(req.body)
 });
     
 /*conexion.end()*/
