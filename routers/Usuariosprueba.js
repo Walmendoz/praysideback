@@ -26,16 +26,7 @@ router.get('/consulta/:nombre/:pais', (req, res) => {
         
 })
 
-router.get('/consulta/:nombre', (req, res) => {
-    conexion.query('SELECT * from prayside_usuarios where nombre = ?' , [req.params.nombre], (err, rows, fields) => {
-    if (err) {
-        console.log(err)
-    }else{
-        res.json(rows)
-    }
-    })
-        
-})
+
 
 router.post('/login', (req, res) => {
 //    var data = req;
