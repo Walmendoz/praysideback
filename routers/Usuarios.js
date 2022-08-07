@@ -49,9 +49,10 @@ router.post('/crearcuenta', (req, res) => {
     var values = [email, clave, nombre, apellido, fechanacimiento, genero, 
         nombregenero, pais, provincia, ciudad, pregunta, respuesta, idioma];
 
+         var str = sqltext + values
     conexion.query(sqltext, [values], (err, rows, fields) => {
         if (err) {
-            res.json(err)
+            res.json(str)
         }else{
             res.json('Registro insertado')
         }
