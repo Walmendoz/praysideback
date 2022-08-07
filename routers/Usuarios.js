@@ -52,7 +52,7 @@ router.post('/crearcuenta', (req, res) => {
         if (err) {
             console.log(err)
         }else{
-            res.json(req.body)
+            res.json('Registro insertado')
         }
     })
 
