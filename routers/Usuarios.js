@@ -46,9 +46,6 @@ router.post('/crearcuenta', (req, res) => {
     'email = ?, clave = ?, nombre = ?, apellido = ?, fechanacimiento = ?, genero = ?, ' +  
     'nombregenero = ?, pais = ?, provincia = ?, ciudad = ?, pregunta = ?, respuesta = ?, idioma = ? ';
 
-     var values = [email, clave, nombre, apellido, fechanacimiento, genero, 
-         nombregenero, pais, provincia, ciudad, pregunta, respuesta, idioma];
-
     conexion.query(sqltext, [email, clave, nombre, apellido, fechanacimiento, genero, 
         nombregenero, pais, provincia, ciudad, pregunta, respuesta, idioma], (err, rows, fields) => {
         if (err) {
@@ -59,7 +56,39 @@ router.post('/crearcuenta', (req, res) => {
     })
 
 });
-    
+   
+router.put('/cambiarcuenta', (req, res) => {
+    //    var data = req;
+    var email = req.body[0].email;
+    var clave = req.body[0].clave;
+    var nombre = req.body[0].nombre;
+    var apellido = req.body[0].apellido;
+    var fechanacimiento = req.body[0].fechanacimiento;
+    var genero = req.body[0].genero;
+    var nombregenero = req.body[0].nombregenero;
+    var pais = req.body[0].pais;
+    var provincia = req.body[0].provincia;
+    var ciudad = req.body[0].ciudad;
+    var pregunta = req.body[0].pregunta;
+    var respuesta = req.body[0].respuesta;
+    var idioma = req.body[0].idioma;
+        
+    var sqltext = 'update prayside_usuarios set ' + 
+    'clave = ?, nombre = ?, apellido = ?, fechanacimiento = ?, genero = ?, ' +  
+    'nombregenero = ?, pais = ?, provincia = ?, ciudad = ?, pregunta = ?, respuesta = ?, idioma = ? ' +
+    'where email = ?';
+
+    conexion.query(sqltext, [clave, nombre, apellido, fechanacimiento, genero, 
+        nombregenero, pais, provincia, ciudad, pregunta, respuesta, idioma], [email],  (err, rows, fields) => {
+        if (err) {
+            res.json(err)
+        }else{
+            res.json('Registro modificado')
+        }
+    })
+
+});
+
 /*conexion.end()*/
 
 module.exports = router;
