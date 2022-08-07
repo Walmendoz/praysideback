@@ -38,14 +38,14 @@ router.get('/consulta/:nombre', (req, res) => {
 })
 
 router.post('/login', (req, res) => {
-    var data = req;
-    console.log(data);
+//    var data = req;
+//    console.log(data);
     
 //    console.log("Name: ", data.nombre);
 //    console.log("Age: ", data.edad);
 //    console.log("Gender: ", data.genero);
       
-    res.send(data);
+    res.send('posted');
   });
 
 /*conexion.end()*/

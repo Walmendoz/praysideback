@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-
+const body_parser = require('body-parser');
 
 
 const conexion = require('./routers/Conexion')
@@ -41,6 +41,9 @@ app.use(cors({
 
 // fin de permitir
 
+//configure body-parser for express
+app.use(body_parser.urlencoded({extended:false}));
+app.use(body_parser.json());
 
 app.use('/', require('./routers/Usuarios'));
 
