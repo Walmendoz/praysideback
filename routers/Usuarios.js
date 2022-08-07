@@ -42,7 +42,7 @@ router.post('/crearcuenta', (req, res) => {
     var respuesta = req.body[0].respuesta;
     var idioma = req.body[0].idioma;
         
-    var sqltext = 'insert into prayside_usuarios ' + 
+    var sqltext = 'insert into prayside_usuarios set ' + 
     '(email, clave, nombre, apellido, fechanacimiento, genero, ' +  
     'nombregenero, pais, provincia, ciudad, pregunta, respuesta, idioma) VALUES ? ';
 
