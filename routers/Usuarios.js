@@ -3,17 +3,6 @@ const router = express.Router();
 
 const conexion = require('./Conexion')
 
-router.get('/', (req, res) => {
-    conexion.query('SELECT * from prayside_usuarios', (err, rows, fields) => {
-    if (err) {
-        console.log(err)
-    }else{
-        res.json(rows)
-    }
-    })
-        
-})
-
 router.get('/buscarusuariocorreo/:email', (req, res) => {
     var email = req.params.email
     conexion.query('SELECT clave, nombre, idioma from prayside_usuarios where email = ?' , [email], (err, rows, fields) => {
@@ -29,6 +18,18 @@ router.get('/buscarusuariocorreo/:email', (req, res) => {
 router.get('/buscardatosusuario/:email', (req, res) => {
     var email = req.params.email
     conexion.query('SELECT * from prayside_usuarios where email = ?' , [email], (err, rows, fields) => {
+    if (err) {
+        console.log(err)
+    }else{
+        res.json(rows)
+    }
+    })
+        
+})
+
+router.get('/buscarclave/:email', (req, res) => {
+    var email = req.params.email
+    conexion.query('SELECT clave, pregunta, respuesta from prayside_usuarios where email = ?' , [email], (err, rows, fields) => {
     if (err) {
         console.log(err)
     }else{
