@@ -28,7 +28,7 @@ router.get('/buscarusuariocorreo/:email', (req, res) => {
 
 router.post('/crearcuenta', (req, res) => {
     //    var data = req;
-    var email = req.body.email;
+    var email = req.body[0].email;
     var clave = req.body.clave;
     var nombre = req.body.nombre;
     var apellido = req.body.apellido;
@@ -52,7 +52,7 @@ router.post('/crearcuenta', (req, res) => {
          var str = email
     conexion.query(sqltext, [values], (err, rows, fields) => {
         if (err) {
-            res.json(req.body)
+            res.json(str)
         }else{
             res.json('Registro insertado')
         }
