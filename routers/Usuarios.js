@@ -70,7 +70,7 @@ router.post('/crearcuenta', (req, res) => {
 
 });
    
-router.update('/cambiarcuenta', (req, res) => {
+router.put('/cambiarcuenta', (req, res) => {
     //    var data = req;
     var email = req.body[0].email;
     var clave = req.body[0].clave;
