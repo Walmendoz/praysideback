@@ -28,7 +28,6 @@ router.get('/buscarusuariocorreo/:email', (req, res) => {
 
 router.post('/crearcuenta', (req, res) => {
     //    var data = req;
-    console.log(req.body);
     var email = req.body.email;
     var clave = req.body.clave;
     var nombre = req.body.nombre;
@@ -53,7 +52,7 @@ router.post('/crearcuenta', (req, res) => {
         if (err) {
             console.log(err)
         }else{
-            res.json(rows)
+            res.json(req.body)
         }
     })
 
