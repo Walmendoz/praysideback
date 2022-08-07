@@ -29,18 +29,18 @@ router.get('/buscarusuariocorreo/:email', (req, res) => {
 router.post('/crearcuenta', (req, res) => {
     //    var data = req;
     var email = req.body[0].email;
-    var clave = req.body.clave;
-    var nombre = req.body.nombre;
-    var apellido = req.body.apellido;
-    var fechanacimiento = req.body.fechanacimiento;
-    var genero = req.body.genero;
-    var nombregenero = req.body.nombregenero;
-    var pais = req.body.pais;
-    var provincia = req.body.provincia;
-    var ciudad = req.body.ciudad;
-    var pregunta = req.body.pregunta;
-    var respuesta = req.body.respuesta;
-    var idioma = req.body.idioma;
+    var clave = req.body[0].clave;
+    var nombre = req.body[0].nombre;
+    var apellido = req.body[0].apellido;
+    var fechanacimiento = req.body[0].fechanacimiento;
+    var genero = req.body[0].genero;
+    var nombregenero = req.body[0].nombregenero;
+    var pais = req.body[0].pais;
+    var provincia = req.body[0].provincia;
+    var ciudad = req.body[0].ciudad;
+    var pregunta = req.body[0].pregunta;
+    var respuesta = req.body[0].respuesta;
+    var idioma = req.body[0].idioma;
         
     var sqltext = 'insert into prayside_usuarios ' + 
     '(email, clave, nombre, apellido, fechanacimiento, genero, ' +  
@@ -52,7 +52,7 @@ router.post('/crearcuenta', (req, res) => {
          var str = email
     conexion.query(sqltext, [values], (err, rows, fields) => {
         if (err) {
-            res.json(str)
+            res.json(values)
         }else{
             res.json('Registro insertado')
         }
