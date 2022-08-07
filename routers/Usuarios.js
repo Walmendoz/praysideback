@@ -49,7 +49,8 @@ router.post('/crearcuenta', (req, res) => {
      var values = [email, clave, nombre, apellido, fechanacimiento, genero, 
          nombregenero, pais, provincia, ciudad, pregunta, respuesta, idioma];
 
-    conexion.query(sqltext, [values], (err, rows, fields) => {
+    conexion.query(sqltext, [email, clave, nombre, apellido, fechanacimiento, genero, 
+        nombregenero, pais, provincia, ciudad, pregunta, respuesta, idioma], (err, rows, fields) => {
         if (err) {
             res.json(err)
         }else{
