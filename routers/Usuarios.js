@@ -46,10 +46,10 @@ router.post('/crearcuenta', (req, res) => {
     '(email, clave, nombre, apellido, fechanacimiento, genero, ' +  
     'nombregenero, pais, provincia, ciudad, pregunta, respuesta, idioma) VALUES ? ';
 
-    var values = [[email], req.body.clave, nombre, apellido, fechanacimiento, genero, 
-        nombregenero, pais, provincia, ciudad, pregunta, respuesta, idioma];
+    // var values = [[email], req.body.clave, nombre, apellido, fechanacimiento, genero, 
+    //     nombregenero, pais, provincia, ciudad, pregunta, respuesta, idioma];
 
-         var str = values
+         var str = email
     conexion.query(sqltext, [values], (err, rows, fields) => {
         if (err) {
             res.json(str)
