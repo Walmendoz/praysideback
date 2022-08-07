@@ -45,11 +45,15 @@ app.use(cors({
 app.use(body_parser.urlencoded({extended:false}));
 app.use(body_parser.json());
 
-app.use('/', require('./routers/Usuarios'));
+//Apis web
 
-app.use('/prueba', require('./routers/prueba'));
+app.use('/usuarios', require('./routers/Usuarios'));
+
+app.use('/regionales', require('./routers/Regionales'));
 
 app.use('/usuariosprueba', require('./routers/Usuariosprueba'));
+
+//listen
 
 app.listen(puerto, () => {
     console.log(`Servidor Escuchando en el puerto ${puerto}`)
