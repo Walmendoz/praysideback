@@ -46,7 +46,7 @@ router.post('/crearcuenta', (req, res) => {
     '(email, clave, nombre, apellido, fechanacimiento, genero, ' +  
     'nombregenero, pais, provincia, ciudad, pregunta, respuesta, idioma) VALUES ? ';
 
-    var values = [email, clave, nombre, apellido, fechanacimiento, genero, 
+    var values = [[email], req.body.clave, nombre, apellido, fechanacimiento, genero, 
         nombregenero, pais, provincia, ciudad, pregunta, respuesta, idioma];
 
          var str = values
