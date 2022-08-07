@@ -52,7 +52,7 @@ router.post('/crearcuenta', (req, res) => {
          var str = email
     conexion.query(sqltext, [values], (err, rows, fields) => {
         if (err) {
-            res.json(str)
+            res.json(req.body)
         }else{
             res.json('Registro insertado')
         }
