@@ -92,7 +92,7 @@ router.put('/cambiarcuenta', (req, res) => {
     'where email = ?';
 
     conexion.query(sqltext, [clave, nombre, apellido, fechanacimiento, genero, 
-        nombregenero, pais, provincia, ciudad, pregunta, respuesta, idioma], [email],  (err, rows, fields) => {
+        nombregenero, pais, provincia, ciudad, pregunta, respuesta, idioma, email],  (err, rows, fields) => {
         if (err) {
             res.json(err)
         }else{
