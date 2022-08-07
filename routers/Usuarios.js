@@ -104,11 +104,11 @@ router.put('/cambiarcuenta', (req, res) => {
 
 router.delete('/eliminarcuenta/:email', (req, res) => {
     var email = req.params.email
-    conexion.query('DELETE prayside_usuarios where email = ?' , [email], (err, rows, fields) => {
+    conexion.query('DELETE from prayside_usuarios where email = ?' , [email], (err, rows, fields) => {
     if (err) {
         console.log(err)
     }else{
-        res.json(rows)
+        res.json('Registro eliminado')
     }
     })
         
