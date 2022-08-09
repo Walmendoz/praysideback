@@ -60,7 +60,7 @@ router.post('/crearcuenta', (req, res) => {
     'email = ?, clave = ?, nombre = ?, apellido = ?, fechanacimiento = ?, genero = ?, ' +  
     'nombregenero = ?, pais = ?, provincia = ?, ciudad = ?, pregunta = ?, respuesta = ?, idioma = ? ';
 
-    conexion.query('SELECT count(*) as registros from prayside_usuarios where email =?', [email], (err, rows, fields) => {
+    conexion.query('SELECT email from prayside_usuarios where email = ?', [email], (err, rows, fields) => {
         if (!rows) {
             conexion.query(sqltext, [email, clave, nombre, apellido, fechanacimiento, genero, 
                 nombregenero, pais, provincia, ciudad, pregunta, respuesta, idioma], (err, rows, fields) => {
@@ -72,12 +72,14 @@ router.post('/crearcuenta', (req, res) => {
             })
 
             var espacios = ' '
-            conexion.query('UPDATE prayside_ciudades set provinciacodigo = ? where paiscodigodos = ? and ciudadcodigo = ? and provinciacodigo = ?', [provincia, paisciudad, espacios], (err, rows, fields) => {
+            conexion.query('UPDATE prayside_ciudades set provinciacodigo = ? where paiscodigodos = ? and ciudadcodigo = ? and provinciacodigo = ?', [provincia, pais, ciudad, espacios], (err, rows, fields) => {
                 var espaciosdos = ' '
             })
-
-
+        }else{
+            res.json('Registro correo ya existe')
         }
+
+
     })
 
 });
