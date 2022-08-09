@@ -76,7 +76,7 @@ router.post('/crearcuenta', (req, res) => {
                 var espaciosdos = ' '
             })
         }else{
-            res.json(rows)
+            res.json('Correo ya existe')
         }
 
 
@@ -112,6 +112,12 @@ router.put('/cambiarcuenta', (req, res) => {
         }else{
             res.json('Registro modificado')
         }
+
+        var espacios = ' '
+        conexion.query('UPDATE prayside_ciudades set provinciacodigo = ? where paiscodigodos = ? and ciudadcodigo = ? and provinciacodigo = ?', [provincia, pais, ciudad, espacios], (err, rows, fields) => {
+            var espaciosdos = ' '
+        })
+
     })
 
 });
