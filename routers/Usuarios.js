@@ -61,7 +61,7 @@ router.post('/crearcuenta', (req, res) => {
     'nombregenero = ?, pais = ?, provincia = ?, ciudad = ?, pregunta = ?, respuesta = ?, idioma = ? ';
 
     conexion.query('SELECT email from prayside_usuarios where email = ?', [email], (err, rows, fields) => {
-        if (!rows) {
+        if (rows.length === 0) {
             conexion.query(sqltext, [email, clave, nombre, apellido, fechanacimiento, genero, 
                 nombregenero, pais, provincia, ciudad, pregunta, respuesta, idioma], (err, rows, fields) => {
                 if (err) {
@@ -76,7 +76,7 @@ router.post('/crearcuenta', (req, res) => {
                 var espaciosdos = ' '
             })
         }else{
-            res.json('Registro correo ya existe')
+            res.json(rows)
         }
 
 
