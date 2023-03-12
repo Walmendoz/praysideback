@@ -37,8 +37,10 @@ setInterval(function () {
 //   origin: ['https://prayside.com', 'https://google.com' ],
 // 	methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
 // }))
-
-app.use(cors)
+const whitelist = ['https://prayside.com']
+app.use(cors({
+  origin: whitelist
+}))
 
 
 // fin de permitir
