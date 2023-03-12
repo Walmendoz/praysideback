@@ -38,7 +38,7 @@ setInterval(function () {
 // 	methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
 // }))
 
-app.use(cors())
+app.use(cors)
 
 
 // fin de permitir
