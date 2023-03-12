@@ -34,7 +34,8 @@ setInterval(function () {
 // }))
 
 app.use(cors({
-	origin: '*',
+  origin: ['https://prayside.com', 'https://google.com' ],
+  origin: '*',
 	methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
 }))
 
