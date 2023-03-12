@@ -33,10 +33,13 @@ setInterval(function () {
 // 	origin: '*' 
 // }))
 
-app.use(cors({
-  origin: ['https://prayside.com', 'https://google.com' ],
-	methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
-}))
+// app.use(cors({
+//   origin: ['https://prayside.com', 'https://google.com' ],
+// 	methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
+// }))
+
+app.use(cors())
+
 
 // fin de permitir
 
