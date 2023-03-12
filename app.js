@@ -8,7 +8,6 @@ const conexion = require('./routers/Conexion')
 // definir el puerto
   const puerto = process.env.PORT || 3000;
 
-
 /* Rutas web Apis 
 app.use('/', require('./routers/Rutasweb'));
 app.use('/usuarios', require('./routers/Usuarios'));
@@ -37,9 +36,10 @@ setInterval(function () {
 //   origin: ['https://prayside.com', 'https://google.com' ],
 // 	methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
 // }))
-const whitelist = ['https://prayside.com']
+const whitelist = ['https://prayside.com', 'https://google.com']
 app.use(cors({
-  origin: whitelist
+  origin: whitelist,
+  methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
 }))
 
 
