@@ -42,6 +42,7 @@ router.get('/buscarclave/:email', (req, res) => {
 
 router.post('/crearcuenta', (req, res) => {
     //    var data = req;
+    
     var email = req.body[0].email;
     var clave = req.body[0].clave;
     var nombre = req.body[0].nombre;

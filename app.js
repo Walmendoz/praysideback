@@ -3,7 +3,6 @@ const app = express();
 const cors = require('cors');
 const body_parser = require('body-parser');
 
-
 const conexion = require('./routers/Conexion')
 
 // definir el puerto
