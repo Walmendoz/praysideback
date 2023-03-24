@@ -51,7 +51,7 @@ app.use(body_parser.json());
 
 //Apis web
 
-app.use('/usuarios', require('./routers/Usuarios'));
+app.use('/usuarios/', require('./routers/Usuarios'));
 
 app.use('/regionales', require('./routers/Regionales'));
 
