@@ -6,21 +6,16 @@ const conexion = require('./Conexion')
 router.post('/crearministerio', (req, res) => {
     //    var data = req;
     
-    var email = req.body[0].email;
     var nombre = req.body[0].nombre;
-    var pais = req.body[0].pais;
-    var provincia = req.body[0].provincia;
-    var ciudad = req.body[0].ciudad;
-    var idioma = req.body[0].idioma;
 //    var numero = 20
 //    var compbte = numero.toString().trim()
         
     var sqltext = 'insert into prayside_ministerios set ' + 
-    'email = ?, nombre = ?, pais = ?, provincia = ?, ciudad = ?, idioma = ? ';
+    'nombre = ? ';
 
     conexion.query('SELECT nombre from prayside_ministerios where nombre = ?', [nombre], (err, rows, fields) => {
         if (rows.length === 0) {
-            conexion.query(sqltext, [email, nombre, pais, provincia, ciudad, idioma], (err, rows, fields) => {
+            conexion.query(sqltext, [nombre], (err, rows, fields) => {
                 if (err) {
                     res.json(err)
                 }else{
@@ -28,10 +23,13 @@ router.post('/crearministerio', (req, res) => {
                 }
             })
 
+        {/*
             var espacios = ' '
             conexion.query('UPDATE prayside_ciudades set provinciacodigo = ? where paiscodigodos = ? and ciudadcodigo = ? and provinciacodigo = ?', [provincia, pais, ciudad, espacios], (err, rows, fields) => {
                 var espaciosdos = ' '
             })
+        */}
+
         }else{
             res.json('Correo ya existe')
         }
