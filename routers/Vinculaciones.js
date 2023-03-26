@@ -7,15 +7,19 @@ router.post('/crearministerio', (req, res) => {
     //    var data = req;
     
     var nombre = req.body[0].nombre;
+    var idioma = req.body[0].idioma;
+    var pais = req.body[0].pais;
+    var provincia = req.body[0].provincia;
+    var ciudad = req.body[0].ciudad;
 //    var numero = 20
 //    var compbte = numero.toString().trim()
         
     var sqltext = 'insert into prayside_ministerios set ' + 
-    'nombre = ? ';
+    'nombre = ?, idioma = ?, pais = ?, provincia = ?, ciudad = ? ';
 
     conexion.query('SELECT nombre from prayside_ministerios where nombre = ?', [nombre], (err, rows, fields) => {
         if (rows.length === 0) {
-            conexion.query(sqltext, [nombre], (err, rows, fields) => {
+            conexion.query(sqltext, [nombre, idioma, pais, provincia, ciudad], (err, rows, fields) => {
                 if (err) {
                     res.json(err)
                 }else{
@@ -33,10 +37,7 @@ router.post('/crearministerio', (req, res) => {
         }else{
             res.json('Correo ya existe')
         }
-
-
     })
-
 });
    
 router.put('/cambiarministerio', (req, res) => {
