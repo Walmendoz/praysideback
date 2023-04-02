@@ -20,7 +20,7 @@ router.post('/crearministerio', (req, res) => {
 //    var compbte = numero.toString().trim()
         
     var sqltext = 'insert into prayside_ministerios set ' + 
-    'nombre = ?, idioma = ?, pais = ?, provincia = ?, ciudad = ? ' + 
+    'nombre = ?, idioma = ?, pais = ?, provincia = ?, ciudad = ?, ' + 
     'direccion = ?, telefono = ?, email = ?, visibilidad = ?, religion = ?';
 
     conexion.query('SELECT nombre from prayside_ministerios where nombre = ?', [nombre], (err, rows, fields) => {
