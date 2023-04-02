@@ -11,15 +11,22 @@ router.post('/crearministerio', (req, res) => {
     var pais = req.body[0].pais;
     var provincia = req.body[0].provincia;
     var ciudad = req.body[0].ciudad;
+    var direccion = req.body[0].direccion;
+    var telefono = req.body[0].telefono;
+    var email = req.body[0].email;
+    var visibilidad = req.body[0].visibilidad;
+    var religion = req.body[0].religion;
 //    var numero = 20
 //    var compbte = numero.toString().trim()
         
     var sqltext = 'insert into prayside_ministerios set ' + 
-    'nombre = ?, idioma = ?, pais = ?, provincia = ?, ciudad = ? ';
+    'nombre = ?, idioma = ?, pais = ?, provincia = ?, ciudad = ? ' + 
+    'direccion = ?, telefono = ?, email = ?, visibilidad = ?, religion = ?';
 
     conexion.query('SELECT nombre from prayside_ministerios where nombre = ?', [nombre], (err, rows, fields) => {
         if (rows.length === 0) {
-            conexion.query(sqltext, [nombre, idioma, pais, provincia, ciudad], (err, rows, fields) => {
+            conexion.query(sqltext, [nombre, idioma, pais, provincia, ciudad, direccion, telefono, email,
+            visibilidad, religion], (err, rows, fields) => {
                 if (err) {
                     res.json(err)
                 }else{
