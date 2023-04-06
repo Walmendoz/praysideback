@@ -84,18 +84,21 @@ router.put('/cambiarministerio', (req, res) => {
 
 });
 
-router.delete('/eliminarcuenta/:email', (req, res) => {
+router.get('/buscarministerios/:email', (req, res) => {
     var email = req.params.email
-    conexion.query('DELETE from prayside_usuarios where email = ?' , [email], (err, rows, fields) => {
+    var sqltext =  'SELECT tipo, nombre, emailpropietario ' + 
+                   'FROM prayside_ministerios ' +
+                   'where emailpropietario = ? order by nombre'
+
+    conexion.query(sqltext, [email] , (err, rows, fields) => {
     if (err) {
         console.log(err)
     }else{
-        res.json('Registro eliminado')
+        res.json(rows)
     }
     })
         
 })
-
 
 /*conexion.end()*/
 
