@@ -99,6 +99,7 @@ router.get('/buscarministerios/:email', (req, res) => {
     })
         
 })
+  
 
 /*conexion.end()*/
 
