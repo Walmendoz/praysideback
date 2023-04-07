@@ -7,9 +7,9 @@ const conexion = require('./Conexion')
 router.get('/buscargruposdeoracion', (req, res) => {
     var sqltext =  'SELECT tipo, nombre, emailpropietario ' + 
                    'FROM prayside_ministerios ' +
-                   'where tipo = ? order by nombre'
+                   'where tipo = ? and visibilidad = ? order by nombre'
 
-    conexion.query(sqltext, [5] , (err, rows, fields) => {
+    conexion.query(sqltext, [5,'publico'] , (err, rows, fields) => {
     if (err) {
         console.log(err)
     }else{
