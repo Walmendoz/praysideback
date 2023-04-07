@@ -54,6 +54,7 @@ app.use(body_parser.json());
 app.use('/usuarios/', require('./routers/Usuarios'));
 app.use('/regionales', require('./routers/Regionales'));
 app.use('/vinculaciones/', require('./routers/Vinculaciones'));
+app.use('/grupos/', require('./routers/Grupos'));
 
 
 app.use('/usuariosprueba', require('./routers/Usuariosprueba'));
