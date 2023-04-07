@@ -6,6 +6,7 @@ const conexion = require('./Conexion')
 router.post('/crearministerio', (req, res) => {
     //    var data = req;
     
+    var tipo = req.body[0].tipo;
     var emailpropietario = req.body[0].usuariocorreo;
     var nombre = req.body[0].nombre;
     var idioma = req.body[0].idioma;
@@ -21,12 +22,12 @@ router.post('/crearministerio', (req, res) => {
 //    var compbte = numero.toString().trim()
         
     var sqltext = 'insert into prayside_ministerios set ' + 
-    'emailpropietario = ?, nombre = ?, idioma = ?, pais = ?, provincia = ?, ciudad = ?, ' + 
+    'tipo = ?, emailpropietario = ?, nombre = ?, idioma = ?, pais = ?, provincia = ?, ciudad = ?, ' + 
     'direccion = ?, telefono = ?, email = ?, visibilidad = ?, religion = ?';
 
     conexion.query('SELECT nombre from prayside_ministerios where nombre = ?', [nombre], (err, rows, fields) => {
         if (rows.length === 0) {
-            conexion.query(sqltext, [emailpropietario, nombre, idioma, pais, provincia, ciudad, direccion, telefono, email, visibilidad, religion], (err, rows, fields) => {
+            conexion.query(sqltext, [tipo, emailpropietario, nombre, idioma, pais, provincia, ciudad, direccion, telefono, email, visibilidad, religion], (err, rows, fields) => {
                 if (err) {
                     res.json(err)
                 }else{
