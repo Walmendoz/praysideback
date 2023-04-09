@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const body_parser = require('body-parser');
-const multer = require('multer');
+//const multer = require('multer');
 
 const conexion = require('./routers/Conexion')
 
@@ -27,17 +27,18 @@ app.use(body_parser.raw({type:'image/*', limit: '1mb'}));
 
 
 //Midleware
-app.use(multer({
-  dest: './src/public/uploads'
-  }).single('image'));
+// app.use(multer({
+//   dest: './src/public/uploads'
+//   }).single('image'));
 
   //Apis web
-app.post('/upload', (req,res) => {
+//app.post('/upload', (req,res) => {
 //   console.log(req.file)
-   res.send('Imagenes cargadas')
-});
+//   res.send('Imagenes cargadas')
+//});
 
 
+//Apis web
 app.use('/usuarios/', require('./routers/Usuarios'));
 app.use('/regionales', require('./routers/Regionales'));
 app.use('/vinculaciones/', require('./routers/Vinculaciones'));
