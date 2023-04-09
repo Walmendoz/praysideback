@@ -18,15 +18,15 @@ router.post('/cargarimagen', (req, res) => {
       const ftpClient = new ftp();
       ftpClient.connect({
           //  port: //puerto del servidor/,
-          host: '161.97.77.49',
+          host: 'prayside.com',
           user: 'admin_prayside',
           password: 'Mendoz2704'
       });
 
-      const pathdestino = 'https://prayside.com/redsocial'
+      const pathdestino = '/redsocial'
 
       const storage = new ftpStorage({
-        basepath: 'https://prayside.com/redsocial',
+        basepath: '/redsocial',
         connection: ftpClient,
         destination: (req, file, options, cb) => {
             cb(null, pathdestino);
