@@ -24,12 +24,6 @@ app.use(body_parser.urlencoded({extended:false}));
 app.use(body_parser.json()); //Content-type aplication
 app.use(body_parser.raw({type:'image/*', limit: '1mb'}));
 
-//Midleware
-app.use(multer({
-  dest:path.join(__dirname, 'public/imagenes')})
-  .single('image'));
-
-
 
 //Apis web
 app.use('/usuarios/', require('./routers/Usuarios'));
@@ -63,3 +57,11 @@ app.listen(puerto, () => {
 // 	methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
 // }))
 // fin de permitir
+/*
+//Midleware
+app.use(multer({
+  dest:path.join(__dirname, 'public/imagenes')})
+  .single('image'));
+
+
+*/
