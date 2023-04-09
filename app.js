@@ -33,8 +33,9 @@ app.use(body_parser.raw({type:'image/*', limit: '1mb'}));
 
 //Apis web
 app.post('/upload', (req,res) => {
-   res.send(req.file.filename)
-})
+   console.log(req.file)
+   res.send('Imagen cargada')
+});
 
 
 app.use('/usuarios/', require('./routers/Usuarios'));
