@@ -2,22 +2,45 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const body_parser = require('body-parser');
+const multer = require('multer');
 
 const conexion = require('./routers/Conexion')
 
 // definir el puerto
   const puerto = process.env.PORT || 3000;
 
-/* Rutas web Apis 
-app.use('/', require('./routers/Rutasweb'));
-app.use('/usuarios', require('./routers/Usuarios'));
-app.use('/', require('./routers/Usuarios'));
-app.use('/Usuariosprueba', require('./routers/Usuariosprueba'));
-*/
 setInterval(function () {
   conexion.query(`SELECT * from prayside_usuarios where email = '1' `)
   }, 5000);
 
+const whitelist = ['https://prayside.com', 'https://google.com']
+app.use(cors({
+  origin: whitelist,
+  methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
+}))
+
+//configure body-parser for express
+app.use(body_parser.urlencoded({extended:false}));
+app.use(body_parser.json()); //Content-type aplication
+app.use(body_parser.raw({type:'image/*', limit: '1mb'}));
+
+//Midleware
+app.use(multer())
+
+
+//Apis web
+app.use('/usuarios/', require('./routers/Usuarios'));
+app.use('/regionales', require('./routers/Regionales'));
+app.use('/vinculaciones/', require('./routers/Vinculaciones'));
+app.use('/gruposdeoracion/', require('./routers/Gruposdeoracion'));
+app.use('/imagenes', require('./routers/Imagenes'));
+
+//listen
+
+app.listen(puerto, () => {
+    console.log(`Servidor Escuchando en el puerto ${puerto}`)
+})
+  
 // permitir la solicitud externa de las apis
 
 // app.use((req, res, next) => {
@@ -36,31 +59,4 @@ setInterval(function () {
 //   origin: ['https://prayside.com', 'https://google.com' ],
 // 	methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
 // }))
-const whitelist = ['https://prayside.com', 'https://google.com']
-app.use(cors({
-  origin: whitelist,
-  methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
-}))
-
-
 // fin de permitir
-
-//configure body-parser for express
-app.use(body_parser.urlencoded({extended:false}));
-app.use(body_parser.json()); //Content-type aplication
-app.use(body_parser.raw({type:'image/*', limit: '1mb'}));
-
-//Apis web
-
-app.use('/usuarios/', require('./routers/Usuarios'));
-app.use('/regionales', require('./routers/Regionales'));
-app.use('/vinculaciones/', require('./routers/Vinculaciones'));
-app.use('/gruposdeoracion/', require('./routers/Gruposdeoracion'));
-app.use('/imagenes', require('./routers/Imagenes'));
-
-//listen
-
-app.listen(puerto, () => {
-    console.log(`Servidor Escuchando en el puerto ${puerto}`)
-})
-  
