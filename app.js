@@ -25,7 +25,9 @@ app.use(body_parser.json()); //Content-type aplication
 app.use(body_parser.raw({type:'image/*', limit: '1mb'}));
 
 //Midleware
-app.use(multer())
+app.use(multer({
+  dest:path.join(__dirname, 'public/imagenes')})
+  .single('image'))
 
 
 //Apis web
