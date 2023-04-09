@@ -27,7 +27,8 @@ app.use(body_parser.raw({type:'image/*', limit: '1mb'}));
 //Midleware
 app.use(multer({
   dest:path.join(__dirname, 'public/imagenes')})
-  .single('image'))
+  .single('image'));
+
 
 
 //Apis web
