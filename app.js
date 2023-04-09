@@ -11,7 +11,7 @@ const conexion = require('./routers/Conexion')
 
 //Midleware
 app.use(multer({
-  dest: './src/public/imagenes'
+  dest: './src/public/uploads'
   }).single('image'));
 
   
