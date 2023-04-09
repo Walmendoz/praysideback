@@ -8,35 +8,38 @@ const ftpStorage = require('multer-ftp');
 
 //Uploading Una sola imagen 
 router.post('/cargarimagen', (req, res) => {
-      const file = req.file
-      if (!file) {
-        const error = new Error('Please upload a file')
-        error.httpStatusCode = 400
-        return next(error)
-      }
+      // const file = req.file
+      // if (!file) {
+      //   const error = new Error('Please upload a file')
+      //   error.httpStatusCode = 400
+      //   return next(error)
 
-      const ftpClient = new ftp();
-      ftpClient.connect({
-          //  port: //puerto del servidor/,
-          host: 'prayside.com',
-          user: 'admin_prayside',
-          password: 'Mendoz2704'
-      });
+      // }
 
-      const pathdestino = '/redsocial'
+      // const ftpClient = new ftp();
+      // ftpClient.connect({
+      //     //  port: //puerto del servidor/,
+      //     host: 'prayside.com',
+      //     user: 'admin_prayside',
+      //     password: 'Mendoz2704'
+      // });
 
-      const storage = new ftpStorage({
-        basepath: '/redsocial',
-        connection: ftpClient,
-        destination: (req, file, options, cb) => {
-            cb(null, pathdestino);
-        },
-        filename: function (req, file, cb) {
-            cb(null, file.fieldname + '-' + Date.now())
-            }
-        });
+      // const pathdestino = '/redsocial'
 
-      const upload = multer({storage, file});  
+      // const storage = new ftpStorage({
+      //   basepath: '/redsocial',
+      //   connection: ftpClient,
+      //   destination: (req, file, options, cb) => {
+      //       cb(null, pathdestino);
+      //   },
+      //   filename: function (req, file, cb) {
+      //       cb(null, file.fieldname + '-' + Date.now())
+      //       }
+      //   });
+
+      // const upload = multer({storage, file});  
+
+      res.json('Ok')
 
   })
 
