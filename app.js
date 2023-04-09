@@ -47,7 +47,8 @@ app.use(cors({
 
 //configure body-parser for express
 app.use(body_parser.urlencoded({extended:false}));
-app.use(body_parser.json());
+app.use(body_parser.json()); //Content-type aplication
+app.use(body_parser.raw({type:'image/*', limit: '1mb'}));
 
 //Apis web
 
@@ -55,9 +56,7 @@ app.use('/usuarios/', require('./routers/Usuarios'));
 app.use('/regionales', require('./routers/Regionales'));
 app.use('/vinculaciones/', require('./routers/Vinculaciones'));
 app.use('/gruposdeoracion/', require('./routers/Gruposdeoracion'));
-
-
-app.use('/usuariosprueba', require('./routers/Usuariosprueba'));
+app.use('/imagenes', require('./routers/Imagenes'));
 
 //listen
 
