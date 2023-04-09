@@ -33,7 +33,7 @@ app.use(body_parser.raw({type:'image/*', limit: '1mb'}));
 
 //Apis web
 app.post('/upload', (req,res) => {
-   res.send(req.file)
+   res.send(req.file.filename)
 })
 
 
