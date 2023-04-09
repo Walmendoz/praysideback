@@ -9,12 +9,12 @@ const ftpStorage = require('multer-ftp');
 //Uploading Una sola imagen 
 router.post('/cargarimagen', (req, res) => {
       const file = req.file
-      if (!file) {
-        const error = new Error('Please upload a file')
-        error.httpStatusCode = 400
-        return next(error)
+      // if (!file) {
+      //   const error = new Error('Please upload a file')
+      //   error.httpStatusCode = 400
+      //   return next(error)
 
-      }
+      // }
 
       // const ftpClient = new ftp();
       // ftpClient.connect({
@@ -39,7 +39,7 @@ router.post('/cargarimagen', (req, res) => {
 
       // const upload = multer({storage, file});  
 
-      res.json('Ok')
+      res.json(req)
 
   })
 
