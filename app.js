@@ -11,7 +11,7 @@ const conexion = require('./routers/Conexion')
 
 //Midleware
 app.use(multer({
-  dest:path.join(__dirname, 'public/imagenes')
+  dest: './src/public/imagenes'
   }).single('image'));
 
 setInterval(function () {
