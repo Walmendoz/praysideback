@@ -9,6 +9,11 @@ const conexion = require('./routers/Conexion')
 // definir el puerto
   const puerto = process.env.PORT || 3000;
 
+//Midleware
+app.use(multer({
+  dest:path.join(__dirname, 'public/imagenes')
+  }).single('image'));
+
 setInterval(function () {
   conexion.query(`SELECT * from prayside_usuarios where email = '1' `)
   }, 5000);
@@ -24,10 +29,6 @@ app.use(body_parser.urlencoded({extended:false}));
 app.use(body_parser.json()); //Content-type aplication
 app.use(body_parser.raw({type:'image/*', limit: '1mb'}));
 
-//Midleware
-app.use(multer({
-  dest:path.join(__dirname, 'public/imagenes')})
-  .single('image'));
 
 //Apis web
 app.use('/usuarios/', require('./routers/Usuarios'));
