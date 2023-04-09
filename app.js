@@ -31,12 +31,9 @@ app.use(multer({
   dest: './src/public/uploads'
   }).single('image'));
 
-
   //Apis web
-
-
 app.post('/upload', (req,res) => {
-   console.log(req.file)
+//   console.log(req.file)
    res.send('Imagen cargada')
 });
 
