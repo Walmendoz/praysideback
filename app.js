@@ -14,6 +14,7 @@ app.use(multer({
   dest: './src/public/imagenes'
   }).single('image'));
 
+  
 setInterval(function () {
   conexion.query(`SELECT * from prayside_usuarios where email = '1' `)
   }, 5000);
@@ -31,6 +32,11 @@ app.use(body_parser.raw({type:'image/*', limit: '1mb'}));
 
 
 //Apis web
+app.post('/upload', (req,res) => {
+   res.send(req.file)
+})
+
+
 app.use('/usuarios/', require('./routers/Usuarios'));
 app.use('/regionales', require('./routers/Regionales'));
 app.use('/vinculaciones/', require('./routers/Vinculaciones'));
