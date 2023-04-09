@@ -34,7 +34,7 @@ app.use(multer({
   //Apis web
 app.post('/upload', (req,res) => {
 //   console.log(req.file)
-   res.send('Imagen cargada')
+   res.send('Imagenes cargadas')
 });
 
 
