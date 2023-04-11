@@ -26,10 +26,10 @@ app.use(body_parser.json()); //Content-type aplication
 app.use(body_parser.raw({type:'image/*', limit: '1mb'}));
 
 
-//Midleware
-// app.use(multer({
-//   dest: './src/public/uploads'
-//   }).single('image'));
+// Midleware
+app.use(multer({
+   dest: './src/public/uploads'
+   }).single('image'));
 
   //Apis web
 //app.post('/upload', (req,res) => {

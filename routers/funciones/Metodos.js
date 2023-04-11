@@ -15,6 +15,7 @@ function subirimagen(file) {
     });
 
     const pathdestino = 'https://prayside.com/redsocial'
+
     const storage = new ftpStorage({
         basepath: 'ubicacion destino del servidor',
         connection: ftpClient,
