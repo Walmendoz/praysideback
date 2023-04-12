@@ -6,9 +6,6 @@ const ftp = require('ftp');
 const multer = require('multer');
 const ftpStorage = require('multer-ftp');
 
-app.use(multer({
-  dest: './src/public/uploads'
-  }).single('image'));
 
 //Uploading Una sola imagen 
 router.post('/cargarimagen', (req, res) => {

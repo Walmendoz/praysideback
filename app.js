@@ -27,9 +27,9 @@ app.use(body_parser.raw({type:'image/*', limit: '1mb'}));
 
 
 // Midleware
-app.use(multer({
-   dest: './src/public/uploads'
-   }).single('image'));
+//app.use(multer({
+  // dest: './src/public/uploads'
+//   }).single('image'));
 
   //Apis web
 //app.post('/upload', (req,res) => {
@@ -37,6 +37,18 @@ app.use(multer({
 //   res.send('Imagenes cargadas')
 //});
 
+// app.use(multer({dest:'./uploads/'}).single(...));
+// app.use(multer({dest:'./uploads/'}).array(...));
+// app.use(multer({dest:'./uploads/'}).fields(...));
+// ie:
+
+// app.use(multer({dest:'./uploads/'}).single('photo'));
+// And be sure to have something like:
+
+// <form action="/postPhotos" enctype="multipart/form-data" method="post">
+//     <input type="file" name="photo">
+//     <input type="submit" value="Upload photo">
+// </form>
 
 //Apis web
 app.use('/usuarios/', require('./routers/Usuarios'));
