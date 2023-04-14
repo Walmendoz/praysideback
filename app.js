@@ -25,7 +25,6 @@ app.use(body_parser.urlencoded({extended:false}));
 app.use(body_parser.json()); //Content-type aplication
 app.use(body_parser.raw({type:'image/*', limit: '1mb'}));
 
-
 // Midleware
 //app.use(multer({
   // dest: './src/public/uploads'
