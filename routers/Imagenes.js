@@ -6,10 +6,51 @@ const ftp = require('ftp');
 const multer = require('multer');
 const ftpStorage = require('multer-ftp');
 
-
+//var multer = require('multer')
+let sftpStorage = require('multer-sftp')
 //Uploading Una sola imagen 
 router.post('/cargarimagen', (req, res) => {
-      //const file = req.file
+   // sftp settings     
+   let storage = sftpStorage({
+    sftp: {
+      host: 'prayside.com',
+      port: 22,
+      username: 'admin_prayside',
+      password: 'Mendoz2704'
+
+    },
+    destination: function (req, file, cb) {
+      cb(null, 'redsocial/') // designation folder in host
+    },
+    filename: function (req, file, cb) {
+      // file name settings
+      cb(null, file.fieldname + '-' + Date.now())
+    }
+  })
+
+  let upload = multer({ storage: storage }).array('file');
+
+  upload(req,res,function(err){
+      logger.debug(JSON.stringify(req.body));
+            logger.debug(JSON.stringify(req.files));
+        if(err){
+             logger.debug("Error Occured", JSON.stringify(err));
+             res.json({error_code:1,err_desc:err});
+        } else{
+             logger.debug("Files uploaded successfully");
+            res.json({error_code:0,err_desc:null});
+        }
+    });
+
+
+
+
+
+
+
+
+
+  //const file = req.file
       // if (!file) {
       //   const error = new Error('Please upload a file')
       //   error.httpStatusCode = 400
@@ -42,7 +83,9 @@ router.post('/cargarimagen', (req, res) => {
 
       res.json('Todo Bien....')
 
-  })
+  }
+  
+  )
 
 
 module.exports = router;
@@ -137,4 +180,41 @@ router.post('/cargarimagenes', upload.array('myFiles', 12), (req, res, next) => 
  
 })
 
+*/
+
+/*
+exports.newFileUpload =  function(req , res , next){
+
+   // sftp settings     
+    var storage = sftpStorage({
+      sftp: {
+        host: 'hostname',
+        port: 22,
+        username: 'username',
+        password: 'password'
+
+      },
+      destination: function (req, file, cb) {
+        cb(null, 'images/') // designation folder in host
+      },
+      filename: function (req, file, cb) {
+        // file name settings
+        cb(null, file.fieldname + '-' + Date.now())
+      }
+    })
+
+    var upload = multer({ storage: storage }).array('file');
+
+    upload(req,res,function(err){
+        logger.debug(JSON.stringify(req.body));
+              logger.debug(JSON.stringify(req.files));
+          if(err){
+               logger.debug("Error Occured", JSON.stringify(err));
+               res.json({error_code:1,err_desc:err});
+          } else{
+               logger.debug("Files uploaded successfully");
+              res.json({error_code:0,err_desc:null});
+          }
+      });
+}
 */
