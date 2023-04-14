@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const body_parser = require('body-parser');
-const multer = require('multer');
+//const multer = require('multer');
 
 const conexion = require('./routers/Conexion')
 

@@ -4,10 +4,10 @@ const funciones = require('./funciones/Metodos')
 
 const ftp = require('ftp');
 const multer = require('multer');
-const ftpStorage = require('multer-ftp');
+//const ftpStorage = require('multer-ftp');
 
 //var multer = require('multer')
-let sftpStorage = require('multer-sftp')
+const sftpStorage = require('multer-sftp')
 //Uploading Una sola imagen 
 router.post('/cargarimagen', (req, res) => {
    // sftp settings     
