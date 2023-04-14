@@ -16,7 +16,7 @@ setInterval(function () {
 
 const whitelist = ['https://prayside.com', 'https://google.com']
 app.use(cors({
-  origin: whitelist,
+  origin: '*',
   methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
 }))
 

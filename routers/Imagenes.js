@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const funciones = require('./funciones/Metodos')
 
-const ftp = require('ftp');
-const multer = require('multer');
+//const ftp = require('ftp');
+//const multer = require('multer');
 //const ftpStorage = require('multer-ftp');
 
 //var multer = require('multer')
