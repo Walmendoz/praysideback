@@ -11,7 +11,7 @@ let sftpStorage = require('multer-sftp')
 //Uploading Una sola imagen 
 router.post('/cargarimagen', (req, res) => {
    // sftp settings     
-   let storage = sftpStorage({
+  /* let storage = sftpStorage({
     sftp: {
       host: 'prayside.com',
       port: 22,
@@ -42,7 +42,7 @@ router.post('/cargarimagen', (req, res) => {
         }
     });
 
-
+*/
 
 
 
