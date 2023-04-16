@@ -81,7 +81,7 @@ router.post('/cargarimagen', (req, res) => {
 
       // const upload = multer({storage, file});  
 
-      res.json('Todo Bien....')
+      res.json(req.file)
 
   }
   
