@@ -44,7 +44,7 @@ router.post('/cargarimagen', (req, res) => {
 
 */
 
-      res.json('Todo Super Bien....')
+      res.json('Todo Super Bien..')
 
 
 
