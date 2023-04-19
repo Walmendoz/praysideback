@@ -4,7 +4,7 @@ const cors = require('cors');
 const body_parser = require('body-parser');
 //const multer = require('multer');
 
-const conexion = require('./routers/Conexion')
+const conexion = require('../funciones/Conexion')
 
 // definir el puerto
   const puerto = process.env.PORT || 3000;
