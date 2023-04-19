@@ -15,10 +15,16 @@ setInterval(function () {
   }, 5000);
 
 const whitelist = ['https://prayside.com', 'https://google.com']
+
 app.use(cors({
-  origin: whitelist,
-  methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
+  origin: "*",
+  credentials: true
 }))
+
+//app.use(cors({
+ // origin: whitelist,
+//  methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
+//}))
 
 //configure body-parser for express
 app.use(body_parser.urlencoded({extended:false}));
