@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const conexion = require('./Conexion')
+const conexion = require('../funciones/Conexion')
 
 router.post('/crearministerio', (req, res) => {
     //    var data = req;

@@ -50,6 +50,8 @@ app.use(body_parser.raw({type:'image/*', limit: '1mb'}));
 // </form>
 
 //Apis web
+//app.use('/', routes)
+
 app.use('/usuarios/', require('./routers/Usuarios'));
 app.use('/regionales', require('./routers/Regionales'));
 app.use('/vinculaciones/', require('./routers/Vinculaciones'));
@@ -61,7 +63,9 @@ app.use('/imagenes', require('./routers/Imagenes'));
 app.listen(puerto, () => {
     console.log(`Servidor Escuchando en el puerto ${puerto}`)
 })
-  
+
+//module.exports = app
+
 // permitir la solicitud externa de las apis
 
 // app.use((req, res, next) => {
@@ -89,3 +93,4 @@ app.use(multer({
 
 
 */
+

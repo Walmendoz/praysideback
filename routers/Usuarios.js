@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const conexion = require('./Conexion')
+const conexion = require('../funciones/Conexion')
 
 router.get('/buscarusuariocorreo/:email', (req, res) => {
     var email = req.params.email

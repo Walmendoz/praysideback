@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const conexion = require('./Conexion')
+const conexion = require('../funciones/Conexion')
 
 router.get('/buscarpaises', (req, res) => {
     conexion.query('SELECT paiscodigodos, paisnombre FROM prayside_paises order by paisnombre' , (err, rows, fields) => {

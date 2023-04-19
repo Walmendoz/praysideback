@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const conexion = require('./Conexion')
-
+const conexion = require('../funciones/Conexion')
 
 router.get('/buscargruposdeoracion', (req, res) => {
     var sqltext =  'SELECT tipo, nombre, emailpropietario ' + 
