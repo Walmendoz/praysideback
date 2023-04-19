@@ -63,7 +63,7 @@ app.listen(puerto, () => {
     console.log(`Servidor Escuchando en el puerto ${puerto}`)
 })
 
-//module.exports = app
+module.exports = app
 
 // permitir la solicitud externa de las apis
 
