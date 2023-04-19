@@ -39,7 +39,6 @@ app.use(body_parser.raw({type:'image/*', limit: '1mb'}));
 // app.use(multer({dest:'./uploads/'}).single(...));
 // app.use(multer({dest:'./uploads/'}).array(...));
 // app.use(multer({dest:'./uploads/'}).fields(...));
-// ie:
 
 // app.use(multer({dest:'./uploads/'}).single('photo'));
 // And be sure to have something like:
