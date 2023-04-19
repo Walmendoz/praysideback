@@ -14,7 +14,7 @@ setInterval(function () {
   conexion.query(`SELECT * from prayside_usuarios where email = '1' `)
   }, 5000);
 
-const whitelist = ['https://prayside.com', 'https://google.com','https://node-railway-production-af98.up.railway.app']
+const whitelist = ['https://prayside.com', 'https://google.com']
 app.use(cors({
   origin: whitelist,
   methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
