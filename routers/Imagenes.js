@@ -42,7 +42,7 @@ router.post("/cargarimagen", upload.single("file"), (req, res) => {
     },
   });
 
-  let upload = multer({ storage: storage }).array("file");
+  /*  let upload = multer({ storage: storage }).array("file");
 
   upload(req, res, function (err) {
     logger.debug(JSON.stringify(req.body));
@@ -55,7 +55,7 @@ router.post("/cargarimagen", upload.single("file"), (req, res) => {
       res.json({ error_code: 0, err_desc: null });
     }
   });
-
+*/
   //res.json(req.file);
   res.json("Todo Super Bien..");
 
