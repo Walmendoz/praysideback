@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const body_parser = require("body-parser");
-//const multer = require('multer');
+const multer = require("multer");
 
 const conexion = require("./funciones/Conexion");
 
@@ -43,9 +43,11 @@ app.use(body_parser.json()); //Content-type aplication
 app.use(body_parser.raw({ type: "image/*", limit: "1mb" }));
 
 // Midleware
-//app.use(multer({
-// dest: './src/public/uploads'
-//   }).single('image'));
+app.use(
+  multer({
+    dest: "./src/public/uploads",
+  }).single("image")
+);
 
 //Apis web
 //app.post('/upload', (req,res) => {
