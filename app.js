@@ -17,8 +17,9 @@ setInterval(function () {
 const whitelist = ['https://prayside.com', 'https://google.com']
 
 app.use(cors({
-  origin: "*",
-  credentials: true
+  origin:  whitelist,
+  credentials: true,
+  methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
 }))
 
 //app.use(cors({
@@ -61,7 +62,7 @@ app.use('/usuarios/', require('./routers/Usuarios'));
 app.use('/regionales', require('./routers/Regionales'));
 app.use('/vinculaciones/', require('./routers/Vinculaciones'));
 app.use('/gruposdeoracion/', require('./routers/Gruposdeoracion'));
-app.use('/imagenes', require('./routers/Imagenes'));
+//app.use('/imagenes', require('./routers/Imagenes'));
 
 //listen
 
