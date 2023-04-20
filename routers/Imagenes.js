@@ -42,7 +42,7 @@ router.post("/cargarimagen", upload.single("file"), (req, res) => {
     },
   });
 
-  //  let upload = multer({ storage: storage }).array('file');
+  let upload = multer({ storage: storage }).array("file");
 
   upload(req, res, function (err) {
     logger.debug(JSON.stringify(req.body));
