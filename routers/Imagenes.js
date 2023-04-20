@@ -1,16 +1,31 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 //const funciones = require('./funciones/Metodos')
 
-//const ftp = require('ftp');
-const multer = require('multer');
-//const ftpStorage = require('multer-ftp');
+// const ftp = require("ftp");
+// const multer = require("multer");
+// const ftpStorage = require("multer-ftp");
 
-//var multer = require('multer')
-//const sftpStorage = require('multer-sftp')
-//Uploading Una sola imagen 
-router.post('/cargarimagen', (req, res) => {
-   // sftp settings     
+var multer = require("multer");
+// const sftpStorage = require("multer-sftp");
+//Uploading Una sola imagen
+
+// var storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, "uploads");
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, file.fieldname + "-" + Date.now());
+//   },
+// });
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
+router.post("/cargarimagen", upload.single("file"), (req, res) => {
+  console.log(req.file);
+
+  // sftp settings
   /* let storage = sftpStorage({
     sftp: {
       host: 'prayside.com',
@@ -43,50 +58,39 @@ router.post('/cargarimagen', (req, res) => {
     });
 
 */
-
-      res.json('Todo Super Bien..')
-
-
-
-
-
+  res.json("Todo Super Bien..");
 
   //const file = req.file
-      // if (!file) {
-      //   const error = new Error('Please upload a file')
-      //   error.httpStatusCode = 400
-      //   return next(error)
+  // if (!file) {
+  //   const error = new Error('Please upload a file')
+  //   error.httpStatusCode = 400
+  //   return next(error)
 
-      // }
+  // }
 
-      // const ftpClient = new ftp();
-      // ftpClient.connect({
-      //     //  port: //puerto del servidor/,
-      //     host: 'prayside.com',
-      //     user: 'admin_prayside',
-      //     password: 'Mendoz2704'
-      // });
+  // const ftpClient = new ftp();
+  // ftpClient.connect({
+  //     //  port: //puerto del servidor/,
+  //     host: 'prayside.com',
+  //     user: 'admin_prayside',
+  //     password: 'Mendoz2704'
+  // });
 
-      // const pathdestino = '/redsocial'
+  // const pathdestino = '/redsocial'
 
-      // const storage = new ftpStorage({
-      //   basepath: '/redsocial',
-      //   connection: ftpClient,
-      //   destination: (req, file, options, cb) => {
-      //       cb(null, pathdestino);
-      //   },
-      //   filename: function (req, file, cb) {
-      //       cb(null, file.fieldname + '-' + Date.now())
-      //       }
-      //   });
+  // const storage = new ftpStorage({
+  //   basepath: '/redsocial',
+  //   connection: ftpClient,
+  //   destination: (req, file, options, cb) => {
+  //       cb(null, pathdestino);
+  //   },
+  //   filename: function (req, file, cb) {
+  //       cb(null, file.fieldname + '-' + Date.now())
+  //       }
+  //   });
 
-      // const upload = multer({storage, file});  
-
-
-  }
-  
-  )
-
+  // const upload = multer({storage, file});
+});
 
 module.exports = router;
 

@@ -1,43 +1,53 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const cors = require('cors');
-const body_parser = require('body-parser');
+const cors = require("cors");
+const body_parser = require("body-parser");
 //const multer = require('multer');
 
-const conexion = require('./funciones/Conexion')
+const conexion = require("./funciones/Conexion");
 
 // definir el puerto
-  const puerto = process.env.PORT || 3000;
+const puerto = process.env.PORT || 3000;
 
- 
 setInterval(function () {
-  conexion.query(`SELECT * from prayside_usuarios where email = '1' `)
-  }, 5000);
+  conexion.query(`SELECT * from prayside_usuarios where email = '1' `);
+}, 5000);
 
-const whitelist = ['https://prayside.com', 'https://google.com']
+const whitelist = ["https://prayside.com", "https://google.com"];
 
-app.use(cors({
-  origin:  whitelist,
-  credentials: true,
-  methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
-}))
+app.use(
+  cors({
+    origin: whitelist,
+    credentials: true,
+    methods: [
+      "GET",
+      "POST",
+      "OPTIONS",
+      "PUT",
+      "DELETE",
+      "UPDATE",
+      "PATCH",
+      "Allow",
+    ],
+  })
+);
 
 //app.use(cors({
- // origin: whitelist,
+// origin: whitelist,
 //  methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
 //}))
 
 //configure body-parser for express
-app.use(body_parser.urlencoded({extended:false}));
+app.use(body_parser.urlencoded({ extended: false }));
 app.use(body_parser.json()); //Content-type aplication
-app.use(body_parser.raw({type:'image/*', limit: '1mb'}));
+app.use(body_parser.raw({ type: "image/*", limit: "1mb" }));
 
 // Midleware
 //app.use(multer({
-  // dest: './src/public/uploads'
+// dest: './src/public/uploads'
 //   }).single('image'));
 
-  //Apis web
+//Apis web
 //app.post('/upload', (req,res) => {
 //   console.log(req.file)
 //   res.send('Imagenes cargadas')
@@ -58,19 +68,19 @@ app.use(body_parser.raw({type:'image/*', limit: '1mb'}));
 //Apis web
 //app.use('/', routes)
 
-app.use('/usuarios/', require('./routers/Usuarios'));
-app.use('/regionales', require('./routers/Regionales'));
-app.use('/vinculaciones/', require('./routers/Vinculaciones'));
-app.use('/gruposdeoracion/', require('./routers/Gruposdeoracion'));
-app.use('/imagenes', require('./routers/Imagenes'));
+app.use("/usuarios/", require("./routers/Usuarios"));
+app.use("/regionales", require("./routers/Regionales"));
+app.use("/vinculaciones/", require("./routers/Vinculaciones"));
+app.use("/gruposdeoracion/", require("./routers/Gruposdeoracion"));
+app.use("/imagenes", require("./routers/Imagenes"));
 
 //listen
 
 app.listen(puerto, () => {
-    console.log(`Servidor Escuchando en el puerto ${puerto}`)
-})
+  console.log(`Servidor Escuchando en el puerto ${puerto}`);
+});
 
-module.exports = app
+module.exports = app;
 
 // permitir la solicitud externa de las apis
 
@@ -83,7 +93,7 @@ module.exports = app
 // });
 // app.use(cors({
 // 	origin: ['https://prayside.com', 'https://google.com' ],
-// 	origin: '*' 
+// 	origin: '*'
 // }))
 
 // app.use(cors({
@@ -99,4 +109,3 @@ app.use(multer({
 
 
 */
-
