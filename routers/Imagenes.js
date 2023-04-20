@@ -58,7 +58,8 @@ router.post("/cargarimagen", upload.single("file"), (req, res) => {
     });
 
 */
-  res.json("Todo Super Bien..");
+  res.json(req.file);
+  //res.json("Todo Super Bien..");
 
   //const file = req.file
   // if (!file) {
