@@ -26,21 +26,21 @@ router.post("/cargarimagen", upload.single("file"), (req, res) => {
   console.log(req.file);
 
   // sftp settings
-  let storage = sftpStorage({
-    sftp: {
-      host: "prayside.com",
-      port: 22,
-      username: "admin_prayside",
-      password: "Mendoz2704",
-    },
-    destination: function (req, file, cb) {
-      cb(null, "redsocial/"); // designation folder in host
-    },
-    filename: function (req, file, cb) {
-      // file name settings
-      cb(null, file.fieldname + "-" + Date.now());
-    },
-  });
+  // let storage = sftpStorage({
+  //   sftp: {
+  //     host: "prayside.com",
+  //     port: 22,
+  //     username: "admin_prayside",
+  //     password: "Mendoz2704",
+  //   },
+  //   destination: function (req, file, cb) {
+  //     cb(null, "redsocial/"); // designation folder in host
+  //   },
+  //   filename: function (req, file, cb) {
+  //     // file name settings
+  //     cb(null, file.fieldname + "-" + Date.now());
+  //   },
+  // });
 
   /*  let upload = multer({ storage: storage }).array("file");
 
