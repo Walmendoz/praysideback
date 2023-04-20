@@ -6,8 +6,8 @@ const router = express.Router();
 // const multer = require("multer");
 // const ftpStorage = require("multer-ftp");
 
-var multer = require("multer");
-// const sftpStorage = require("multer-sftp");
+const multer = require("multer");
+const sftpStorage = require("multer-sftp");
 //Uploading Una sola imagen
 
 // var storage = multer.diskStorage({
@@ -26,40 +26,38 @@ router.post("/cargarimagen", upload.single("file"), (req, res) => {
   console.log(req.file);
 
   // sftp settings
-  /* let storage = sftpStorage({
+  let storage = sftpStorage({
     sftp: {
-      host: 'prayside.com',
+      host: "prayside.com",
       port: 22,
-      username: 'admin_prayside',
-      password: 'Mendoz2704'
-
+      username: "admin_prayside",
+      password: "Mendoz2704",
     },
     destination: function (req, file, cb) {
-      cb(null, 'redsocial/') // designation folder in host
+      cb(null, "redsocial/"); // designation folder in host
     },
     filename: function (req, file, cb) {
       // file name settings
-      cb(null, file.fieldname + '-' + Date.now())
+      cb(null, file.fieldname + "-" + Date.now());
+    },
+  });
+
+  //  let upload = multer({ storage: storage }).array('file');
+
+  upload(req, res, function (err) {
+    logger.debug(JSON.stringify(req.body));
+    logger.debug(JSON.stringify(req.files));
+    if (err) {
+      logger.debug("Error Occured", JSON.stringify(err));
+      res.json({ error_code: 1, err_desc: err });
+    } else {
+      logger.debug("Files uploaded successfully");
+      res.json({ error_code: 0, err_desc: null });
     }
-  })
+  });
 
-  let upload = multer({ storage: storage }).array('file');
-
-  upload(req,res,function(err){
-      logger.debug(JSON.stringify(req.body));
-            logger.debug(JSON.stringify(req.files));
-        if(err){
-             logger.debug("Error Occured", JSON.stringify(err));
-             res.json({error_code:1,err_desc:err});
-        } else{
-             logger.debug("Files uploaded successfully");
-            res.json({error_code:0,err_desc:null});
-        }
-    });
-
-*/
-  res.json(req.file);
-  //res.json("Todo Super Bien..");
+  //res.json(req.file);
+  res.json("Todo Super Bien..");
 
   //const file = req.file
   // if (!file) {
