@@ -7,7 +7,7 @@ const router = express.Router();
 // const ftpStorage = require("multer-ftp");
 
 const multer = require("multer");
-const sftpStorage = require("multer-sftp");
+//const sftpStorage = require("multer-sftp");
 //Uploading Una sola imagen
 
 // var storage = multer.diskStorage({
