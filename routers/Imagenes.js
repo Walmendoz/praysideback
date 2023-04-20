@@ -19,8 +19,8 @@ const sftpStorage = require("multer-sftp");
 //   },
 // });
 
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
+var storage = multer.memoryStorage();
+var upload = multer({ storage: storage });
 
 router.post("/cargarimagen", upload.single("file"), (req, res) => {
   console.log(req.file);
