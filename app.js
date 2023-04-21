@@ -5,7 +5,7 @@ const body_parser = require("body-parser");
 const multer = require("multer");
 
 const conexion = require("./funciones/Conexion");
-
+const Rutas = require("./rutas/Rutas");
 // definir el puerto
 const puerto = process.env.PORT || 3000;
 
@@ -68,13 +68,13 @@ app.use(
 // </form>
 
 //Apis web
-//app.use('/', routes)
+app.use("/", Rutas);
 
-app.use("/usuarios/", require("./routers/Usuarios"));
-app.use("/regionales", require("./routers/Regionales"));
-app.use("/vinculaciones/", require("./routers/Vinculaciones"));
-app.use("/gruposdeoracion/", require("./routers/Gruposdeoracion"));
-app.use("/imagenes", require("./routers/Imagenes"));
+// app.use("/usuarios/", require("./routers/Usuarios"));
+// app.use("/regionales", require("./routers/Regionales"));
+// app.use("/vinculaciones/", require("./routers/Vinculaciones"));
+// app.use("/gruposdeoracion/", require("./routers/Gruposdeoracion"));
+// app.use("/imagenes", require("./routers/Imagenes"));
 
 //listen
 
