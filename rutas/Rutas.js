@@ -1,3 +1,5 @@
+const express = require("express");
+
 app.use("/usuarios/", require("../routers/Usuarios"));
 app.use("/regionales", require("../routers/Regionales"));
 app.use("/vinculaciones/", require("../routers/Vinculaciones"));
