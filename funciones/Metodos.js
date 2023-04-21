@@ -1,40 +1,38 @@
-const express = require('express');
-const router = express.Router();
+// const express = require('express');
+// const router = express.Router();
 
-const ftp = require('ftp');
-const multer = require('multer');
-const ftpStorage = require('multer-ftp');
+// const ftp = require('ftp');
+// const multer = require('multer');
+// const ftpStorage = require('multer-ftp');
 
-function subirimagen(file) {
-    const ftpClient = new ftp();
-        ftpClient.connect({
-        //  port: //puerto del servidor/,
-            host: '161.97.77.49',
-            user: 'admin_prayside',
-            password: 'Mendoz2704'
-    });
+// function subirimagen(file) {
+//     const ftpClient = new ftp();
+//         ftpClient.connect({
+//         //  port: //puerto del servidor/,
+//             host: '161.97.77.49',
+//             user: 'admin_prayside',
+//             password: 'Mendoz2704'
+//     });
 
-    const pathdestino = 'https://prayside.com/redsocial'
+//     const pathdestino = 'https://prayside.com/redsocial'
 
-    const storage = new ftpStorage({
-        basepath: 'ubicacion destino del servidor',
-        connection: ftpClient,
-        destination: (req, file, options, cb) => {
-            cb(null, pathdestino);
-        },
-        filename: function (req, file, cb) {
-            cb(null, file.fieldname + '-' + Date.now())
-            }
-    });
+//     const storage = new ftpStorage({
+//         basepath: 'ubicacion destino del servidor',
+//         connection: ftpClient,
+//         destination: (req, file, options, cb) => {
+//             cb(null, pathdestino);
+//         },
+//         filename: function (req, file, cb) {
+//             cb(null, file.fieldname + '-' + Date.now())
+//             }
+//     });
 
-    const upload = multer({storage, fileFilter});  
-}
+//     const upload = multer({storage, fileFilter});
+// }
 
-
-module.exports = {
-    subirimagen: subirimagen,
-};
-
+// module.exports = {
+//     subirimagen: subirimagen,
+// };
 
 /*
 subir Imagen con ftp

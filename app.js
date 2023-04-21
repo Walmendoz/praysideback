@@ -32,11 +32,6 @@ app.use(
   })
 );
 
-//app.use(cors({
-// origin: whitelist,
-//  methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
-//}))
-
 //configure body-parser for express
 app.use(body_parser.urlencoded({ extended: false }));
 app.use(body_parser.json()); //Content-type aplication
@@ -48,6 +43,28 @@ app.use(
     dest: "./src/public/uploads",
   }).single("image")
 );
+
+//Apis web
+app.use("/", Rutas);
+
+// app.use("/usuarios/", require("./routers/Usuarios"));
+// app.use("/regionales", require("./routers/Regionales"));
+// app.use("/vinculaciones/", require("./routers/Vinculaciones"));
+// app.use("/gruposdeoracion/", require("./routers/Gruposdeoracion"));
+// app.use("/imagenes", require("./routers/Imagenes"));
+
+//listen
+
+app.listen(puerto, () => {
+  console.log(`Servidor Escuchando en el puerto ${puerto}`);
+});
+
+module.exports = app;
+
+//app.use(cors({
+// origin: whitelist,
+//  methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'UPDATE', 'PATCH', 'Allow']
+//}))
 
 //Apis web
 //app.post('/upload', (req,res) => {
@@ -66,23 +83,6 @@ app.use(
 //     <input type="file" name="photo">
 //     <input type="submit" value="Upload photo">
 // </form>
-
-//Apis web
-app.use("/", Rutas);
-
-// app.use("/usuarios/", require("./routers/Usuarios"));
-// app.use("/regionales", require("./routers/Regionales"));
-// app.use("/vinculaciones/", require("./routers/Vinculaciones"));
-// app.use("/gruposdeoracion/", require("./routers/Gruposdeoracion"));
-// app.use("/imagenes", require("./routers/Imagenes"));
-
-//listen
-
-app.listen(puerto, () => {
-  console.log(`Servidor Escuchando en el puerto ${puerto}`);
-});
-
-module.exports = app;
 
 // permitir la solicitud externa de las apis
 
