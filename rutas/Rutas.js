@@ -1,9 +1,10 @@
 const express = require("express");
+const appr = express();
 
-app.use("/usuarios/", require("../routers/Usuarios"));
-app.use("/regionales", require("../routers/Regionales"));
-app.use("/vinculaciones/", require("../routers/Vinculaciones"));
-app.use("/gruposdeoracion/", require("../routers/Gruposdeoracion"));
-app.use("/imagenes", require("./routers./Imagenes"));
+appr.use("/usuarios/", require("../routers/Usuarios"));
+appr.use("/regionales", require("../routers/Regionales"));
+appr.use("/vinculaciones/", require("../routers/Vinculaciones"));
+appr.use("/gruposdeoracion/", require("../routers/Gruposdeoracion"));
+appr.use("/imagenes", require("./routers./Imagenes"));
 
 module.exports = Rutas;
