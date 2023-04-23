@@ -59,7 +59,7 @@ app.listen(puerto, () => {
   console.log(`Servidor Escuchando en el puerto ${puerto}`);
 });
 
-module.exports = app;
+//module.exports = app;
 
 //app.use(cors({
 // origin: whitelist,
