@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const body_parser = require("body-parser");
-const multer = require("multer");
+//const multer = require("multer");
 
 const conexion = require("./funciones/Conexion");
 const Rutas = require("./rutas/Rutas");
@@ -38,20 +38,20 @@ app.use(body_parser.json()); //Content-type aplication
 app.use(body_parser.raw({ type: "image/*", limit: "1mb" }));
 
 // Midleware
-app.use(
-  multer({
-    dest: "./src/public/uploads",
-  }).single("image")
-);
+//app.use(
+//  multer({
+//    dest: "./src/public/uploads",
+//  }).single("image")
+//);
 
 //Apis web
 //app.use("/", Rutas);
 
-// app.use("/usuarios/", require("./routers/Usuarios"));
-// app.use("/regionales", require("./routers/Regionales"));
-// app.use("/vinculaciones/", require("./routers/Vinculaciones"));
-// app.use("/gruposdeoracion/", require("./routers/Gruposdeoracion"));
-// app.use("/imagenes", require("./routers/Imagenes"));
+app.use("/usuarios/", require("./routers/Usuarios"));
+app.use("/regionales", require("./routers/Regionales"));
+app.use("/vinculaciones/", require("./routers/Vinculaciones"));
+app.use("/gruposdeoracion/", require("./routers/Gruposdeoracion"));
+app.use("/imagenes", require("./routers/Imagenes"));
 
 //listen
 
