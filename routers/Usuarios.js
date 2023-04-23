@@ -193,4 +193,4 @@ router.delete("/eliminarcuenta/:email", (req, res) => {
 
 /*conexion.end()*/
 
-module.exports = Usuarios;
+module.exports = router;

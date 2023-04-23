@@ -147,4 +147,4 @@ router.get("/buscarministerios/:email", (req, res) => {
 
 /*conexion.end()*/
 
-module.exports = Vinculaciones;
+module.exports = router;

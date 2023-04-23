@@ -7,4 +7,4 @@
 // app.use("/gruposdeoracion/", require("../routers/Gruposdeoracion"));
 // app.use("/imagenes", require("../routers./Imagenes"));
 
-module.exports = Rutas;
+//module.exports = Rutas;

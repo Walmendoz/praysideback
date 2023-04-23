@@ -20,4 +20,4 @@ router.get("/buscargruposdeoracion", (req, res) => {
 
 /*conexion.end()*/
 
-module.exports = Gruposdeoracion;
+module.exports = router;

@@ -50,4 +50,4 @@ router.get("/buscarciudades/:pais", (req, res) => {
 
 /*conexion.end()*/
 
-module.exports = Regionales;
+module.exports = router;

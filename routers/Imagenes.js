@@ -91,7 +91,7 @@ router.post("/cargarimagen", upload.single("file"), (req, res) => {
   // const upload = multer({storage, file});
 });
 
-module.exports = Imagenes;
+module.exports = router;
 
 /*
 Multer añade un objeto body y un objeto file o files al objeto request. El objeto body contiene los valores correspondientes a los campos de texto del formulario, los objetos file o files contienen los archivos que serán subidos mediante el formulario.
