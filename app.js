@@ -5,7 +5,7 @@ const body_parser = require("body-parser");
 //const multer = require("multer");
 
 const conexion = require("./funciones/Conexion");
-const Rutas = require("./rutas/Rutas");
+//const Rutas = require("./rutas/Rutas");
 // definir el puerto
 const puerto = process.env.PORT || 3000;
 
