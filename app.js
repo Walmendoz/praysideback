@@ -45,7 +45,7 @@ app.use(
 );
 
 //Apis web
-app.use("/", Rutas);
+//app.use("/", Rutas);
 
 // app.use("/usuarios/", require("./routers/Usuarios"));
 // app.use("/regionales", require("./routers/Regionales"));
