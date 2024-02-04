@@ -14,9 +14,8 @@ setInterval(function () {
   conexion.query(`SELECT * from prayside_usuarios where email = '1' `);
 }, 5000);
 
-//"https://prayside.com",
-
 const whitelist = [
+  "https://prayside.com",
   "https://google.com",
   "https://praysidefront.app.mendozapps.com",
 ];
