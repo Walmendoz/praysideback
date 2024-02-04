@@ -1,13 +1,16 @@
 //conexion a base de datos
 const mysql = require("mysql");
+require("dotenv").config();
 
 const conexion = mysql.createConnection({
-  host: "194.140.199.108",
-  user: "root",
-  password: "mendocitaa*",
-  database: "prayside",
+  host: process.env.HOST,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE,
+  port: process.env.DB_PORT,
 });
 
+//db_port: process.env.DB_PORT,
 conexion.connect(function (error) {
   if (error) {
     throw error;

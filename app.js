@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const body_parser = require("body-parser");
 const multer = require("multer");
+require("dotenv").config();
 
 const conexion = require("./funciones/Conexion");
 //const Rutas = require("./rutas/Rutas");
