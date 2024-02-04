@@ -1,14 +1,11 @@
-FROM node:16.15.1 AS build
+FROM node:16.15.1 
 WORKDIR /app
-COPY package.json package-lock.json /app/
-RUN npm i
+COPY . /app
+RUN npm install
 
 COPY . .
 RUN npm run build 
 
-FROM nginx:alpine
-ADD ./config/default.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /app/build /var/www/app/
-EXPOSE 80
+EXPOSE 4005
 
-CMD [ "nginx", "-g", "daemon off;" ]
+CMD [ "node", "app.js" ]
